@@ -1,0 +1,101 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="WPF-Test" Height="450" Width="775"
+        Background="#36393F">
+    <!-- Discord Dark Theme -->
+
+    <Window.Resources>
+
+        <Color x:Key="DiscordBackground">#36393F</Color>
+        <!-- Dunkler Hintergrund -->
+        <Color x:Key="DiscordContainer">#2F3136</Color>
+        <!-- Container-Farbe -->
+        <Color x:Key="DiscordBlue">#7289DA</Color>
+        <!-- Akzentfarbe -->
+        <Color x:Key="DiscordText">#B9BBBE</Color>
+        <!-- Primärer Text -->
+
+
+        <!-- Brush-Ressourcen -->
+        <SolidColorBrush x:Key="BackgroundBrush" Color="{StaticResource DiscordBackground}"/>
+        <SolidColorBrush x:Key="ContainerBrush" Color="{StaticResource DiscordContainer}"/>
+        <SolidColorBrush x:Key="ButtonBrush" Color="{StaticResource DiscordBlue}"/>
+        <SolidColorBrush x:Key="TextBrush" Color="{StaticResource DiscordText}"/>
+        <SolidColorBrush x:Key="BorderBrush" Color="{StaticResource DiscordText}"/>
+
+        <!-- TextBox Style -->
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="10,5,10,5"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Background" Value="#2F3136"/>
+            <Setter Property="Foreground" Value="#B9BBBE"/>
+        </Style>
+
+        <!-- Button Style -->
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#7289DA"/>
+            <!-- Discord Blau -->
+            <Setter Property="BorderBrush" Value="#7289DA"/>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+
+        <!-- Label Style -->
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="#B9BBBE"/>
+            <Setter Property="Margin" Value="10,5,10,5"/>
+        </Style>
+
+        <!-- DataGrid Style -->
+        <Style TargetType="DataGrid">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Background" Value="#2F3136"/>
+            <Setter Property="Foreground" Value="#B9BBBE"/>
+            <Setter Property="RowBackground" Value="#36393F"/>
+            <Setter Property="AlternatingRowBackground" Value="#2F3136"/>
+            <Setter Property="GridLinesVisibility" Value="Vertical"/>
+            <Setter Property="BorderBrush" Value="#B9BBBE"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HeadersVisibility" Value="Column"/>
+        </Style>
+
+        <!-- DataGrid Header Style -->
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="#7289DA"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="20">
+        <!-- Linke Spalte: Eingabebereich -->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="300">
+            <Label Content="Name:"/>
+            <TextBox x:Name="tbname"/>
+            <Label Content="Alter:"/>
+            <TextBox x:Name="tbAlter"/>
+            <Button x:Name="SaveName" Content="Speichern" Click="SaveName_Click"/>
+        </StackPanel>
+
+        <!-- Rechte Spalte: DataGrid -->
+        <DataGrid x:Name="GridName" Margin="330,0,0,0"
+                  AutoGenerateColumns="True"
+                  CanUserAddRows="False"
+                  ColumnWidth="*"
+                  HorizontalGridLinesBrush="#B9BBBE"
+                  VerticalGridLinesBrush="#B9BBBE"/>
+    </Grid>
+</Window>
